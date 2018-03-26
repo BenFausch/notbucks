@@ -12,19 +12,19 @@ if (navigator.geolocation) {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
-            console.log(position)
+            // console.log(position)
             document.getElementById('hola').classList.add('hidden');
             initMap(pos);
         }, function() {
-            console.log('yes')
+            // console.log('yes')
         }, function() {
-            console.log('error')
+            // console.log('error')
         }, options);
     } else {
-        console.log('no')
+        // console.log('no')
     }
 } else {
-    console.log('nope')
+    // console.log('nope')
 }
 
 function initMap(pyrmont) {
@@ -40,17 +40,17 @@ function initMap(pyrmont) {
     var service = new google.maps.places.PlacesService(map);
     service.nearbySearch({
         location: pyrmont,
-        radius: 3000,
-        keyword: ['coffee']
+        radius: 1600,
+        keyword: ['coffee'],
     }, addMarkers);
 }
 
 function addMarkers(results, status) {
-    console.log('results', results)
+    // console.log('results', results)
     if (status === google.maps.places.PlacesServiceStatus.OK) {
         for (var i = 0; i < results.length; i++) {
             if ((results[i].name).indexOf('tarbucks') < 0) {
-                console.log(results[i]);
+                // console.log(results[i]);
                 createMarker(results[i]);
             }
         }
