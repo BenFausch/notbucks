@@ -13,6 +13,7 @@ if (navigator.geolocation) {
                 lng: position.coords.longitude
             };
             console.log(position)
+            document.getElementById('hola').classList.add('hidden');;
             initMap(pos);
         }, function() {
             console.log('yes')
