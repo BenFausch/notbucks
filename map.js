@@ -13,7 +13,7 @@ if (navigator.geolocation) {
                 lng: position.coords.longitude
             };
             console.log(position)
-            document.getElementById('hola').classList.add('hidden');;
+            document.getElementById('hola').classList.add('hidden');
             initMap(pos);
         }, function() {
             console.log('yes')
@@ -67,12 +67,12 @@ function createMarker(place) {
     };
     var marker = new google.maps.Marker({
         map: map,
-        position: place.geometry.location,
+        position: placeLoc,
         icon: icon,
         scale: 3
     });
     google.maps.event.addListener(marker, 'click', function() {
-        infoWindow.setContent('<strong class="infoW"><a href="https://www.google.com/maps/place/?q=place_id:' + place.place_id + '" target=_blank">' + place.name + '<br>' + place.vicinity + '</a></strong><p class="rating">' + place.rating + '</p>');
+        infoWindow.setContent('<strong class="infoW"><a href="https://www.google.com/maps/search/?api=1&query='+place.name+'&query_place_id=' + place.place_id + '" target=_blank">' + place.name + '<br>' + place.vicinity + '</a></strong><p class="rating">' + place.rating + '</p>');
         infoWindow.open(map, this);
     });
 }
